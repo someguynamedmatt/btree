@@ -27,11 +27,11 @@ impl<K> Node<K> {
 }
 
 trait TreeNode<K> {
-    fn get_key(&self, key_index: K) -> Option<K>;
+    fn get_val_at_index(&self, key_index: K) -> Option<K>;
 }
 
 impl<K> TreeNode<K> for Node<K> where K: Clone + PartialOrd {
-    fn get_key(&self, key_index: K) -> Option<K> {
+    fn get_val_at_index(&self, key_index: K) -> Option<K> {
         for (i, k) in self.values.iter().enumerate() {
             if key_index == *k {
                 return Some(self.values[i].clone())
@@ -44,7 +44,7 @@ impl<K> TreeNode<K> for Node<K> where K: Clone + PartialOrd {
 fn main() {
     println!("B+Tree Implementation");
     let mut tree: BTree<u32> = BTree::new(vec![], vec![1]);
-    let mut n1: Node<u32> = Node::new(vec![], vec![234]);
+    let n1: Node<u32> = Node::new(vec![], vec![234]);
     let mut n2: Node<u32> = Node::new(vec![], vec![2329234]);
     n2.child_nodes.push(Box::new(Node::new(vec![], vec![8])));
     tree.root_nodes.push(Box::new(n1));
