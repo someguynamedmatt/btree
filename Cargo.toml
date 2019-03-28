@@ -4,4 +4,8 @@ version = "0.1.0"
 authors = ["Matt Young <dev@mttyng.com>"]
 edition = "2018"
 
+[lib]
+name = "btree"
+path = "src/lib.rs"
+
 [dependencies]
