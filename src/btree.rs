@@ -20,6 +20,7 @@ impl<K> BTree<K> {
         let empty_node: Node<K> = Node::new(vec![], self.order, vec![]);
         self.root_nodes.push(Box::new(empty_node));
     }
+
     pub fn push_node_with_vals(&mut self, values: Vec<K>) {
         let new_node: Node<K> = Node::new(vec![], self.order, values);
         self.root_nodes.push(Box::new(new_node));
